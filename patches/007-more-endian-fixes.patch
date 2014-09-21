@@ -1,0 +1,11 @@
+--- ./include/mac_ral/rtmp_mac.h~	2013-09-12 07:27:14.000000000 +0200
++++ ./include/mac_ral/rtmp_mac.h	2014-09-19 23:49:07.871063520 +0200
+@@ -1203,7 +1203,7 @@
+ 	struct {
+ 	    UINT32       OFDMMCS7FBK:4;
+ 	    UINT32       OFDMMCS6FBK:4;
+-	    UINT32       OFDMMCS5FBK:4
++	    UINT32       OFDMMCS5FBK:4;
+ 	    UINT32       OFDMMCS4FBK:4;
+ 	    UINT32       OFDMMCS3FBK:4;
+ 	    UINT32       OFDMMCS2FBK:4;

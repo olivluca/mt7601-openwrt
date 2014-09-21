@@ -1,0 +1,10 @@
+--- ./os/linux/config.mk.orig	2014-09-19 23:46:02.142879167 +0200
++++ ./os/linux/config.mk	2014-09-19 23:46:27.050574385 +0200
+@@ -847,6 +847,7 @@
+ 
+ #################################################
+ 
++WFLAGS += -DRT_BIG_ENDIAN
+ 
+ ifeq ($(PLATFORM),5VT)
+ #WFLAGS += -DCONFIG_5VT_ENHANCE
