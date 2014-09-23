@@ -4,7 +4,7 @@
  
  #################################################
  
-+WFLAGS += -DRT_BIG_ENDIAN
++WFLAGS += $(ENDIANOPTS)
  
  ifeq ($(PLATFORM),5VT)
  #WFLAGS += -DCONFIG_5VT_ENHANCE

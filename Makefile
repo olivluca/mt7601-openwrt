@@ -38,8 +38,14 @@ define KernelPackage/mt7601/description
   This package contains a driver for usb wireless adapters based on the mediatek MT7601U
 endef
 
+ifneq ($(CONFIG_BIG_ENDIAN),)
+  ENDIANOPTS:=-DRT_BIG_ENDIAN
+else
+  ENDIANOPTS:=
+endif
+    
 define Build/Compile
-	$(MAKE) -C $(PKG_BUILD_DIR) LINUX_DIR=$(LINUX_DIR) KERNEL_CROSS=$(KERNEL_CROSS) ARCH=$(LINUX_KARCH)
+	$(MAKE) -C $(PKG_BUILD_DIR) LINUX_DIR=$(LINUX_DIR) KERNEL_CROSS=$(KERNEL_CROSS) ARCH=$(LINUX_KARCH) ENDIANOPTS=$(ENDIANOPTS)
 endef
 
 define KernelPackage/mt7601/install
