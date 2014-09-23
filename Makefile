@@ -31,6 +31,7 @@ define KernelPackage/mt7601
 	SUBMENU:=Wireless Drivers
 	TITLE:=Driver for MT7601U wireless adapters
 	FILES:=$(PKG_BUILD_DIR)/os/linux/mt7601Usta.$(LINUX_KMOD_SUFFIX)
+	DEPENDS:=+wireless-tools +hostapd-common-old @USB_SUPPORT
 #	AUTOLOAD:=$(call AutoLoad,50,mt7601Usta)
 endef
 
