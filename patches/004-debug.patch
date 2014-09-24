@@ -1,11 +1,14 @@
---- DPO_MT7601U_LinuxSTA_3.0.0.4_20130913/os/linux/config.mk.orig	2014-09-19 18:45:49.949427329 +0200
-+++ DPO_MT7601U_LinuxSTA_3.0.0.4_20130913/os/linux/config.mk	2014-09-19 18:46:55.346469319 +0200
-@@ -290,7 +290,7 @@
+--- a/os/linux/config.mk
++++ b/os/linux/config.mk
+@@ -290,7 +290,11 @@ endif
  # config for STA mode
  
  ifeq ($(RT28xx_MODE),STA)
--WFLAGS += -DCONFIG_STA_SUPPORT -DSCAN_SUPPORT
++ifeq ($(RTDEBUG),)
+ WFLAGS += -DCONFIG_STA_SUPPORT -DSCAN_SUPPORT
++else
 +WFLAGS += -DCONFIG_STA_SUPPORT -DSCAN_SUPPORT -DDBG
++endif
  
  ifeq ($(HAS_XLINK),y)
  WFLAGS += -DXLINK_SUPPORT

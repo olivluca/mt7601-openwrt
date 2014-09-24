@@ -1,7 +1,6 @@
-diff --unified --recursive --exclude '*.o' --exclude '*.cmd' DPO_MT7601U_LinuxSTA_3.0.0.4_20130913.orig/chips/mt7601.c DPO_MT7601U_LinuxSTA_3.0.0.4_20130913/chips/mt7601.c
---- DPO_MT7601U_LinuxSTA_3.0.0.4_20130913.orig/chips/mt7601.c	2014-09-21 20:06:20.302317892 +0200
-+++ DPO_MT7601U_LinuxSTA_3.0.0.4_20130913/chips/mt7601.c	2014-09-21 20:06:50.000000000 +0200
-@@ -2243,7 +2243,7 @@
+--- a/chips/mt7601.c
++++ b/chips/mt7601.c
+@@ -2243,7 +2243,7 @@ VOID MT7601_InitPAModeTable(
  VOID MT7601_InitTemperatureCompensation(
  	IN PRTMP_ADAPTER			pAd)
  {
@@ -10,10 +9,9 @@ diff --unified --recursive --exclude '*.o' --exclude '*.cmd' DPO_MT7601U_LinuxST
  
  	pAd->chipCap.TemperatureMode = TEMPERATURE_MODE_NORMAL;
  	pAd->chipCap.CurrentTemperature = 0;
-diff --unified --recursive --exclude '*.o' --exclude '*.cmd' DPO_MT7601U_LinuxSTA_3.0.0.4_20130913.orig/common/cmm_data_usb.c DPO_MT7601U_LinuxSTA_3.0.0.4_20130913/common/cmm_data_usb.c
---- DPO_MT7601U_LinuxSTA_3.0.0.4_20130913.orig/common/cmm_data_usb.c	2013-09-12 07:27:14.000000000 +0200
-+++ DPO_MT7601U_LinuxSTA_3.0.0.4_20130913/common/cmm_data_usb.c	2014-09-21 22:28:55.157665255 +0200
-@@ -1320,6 +1320,9 @@
+--- a/common/cmm_data_usb.c
++++ b/common/cmm_data_usb.c
+@@ -1320,6 +1320,9 @@ if (0) {
  #ifdef RLT_MAC
  	NdisMoveMemory((VOID *)&pRxBlk->hw_rx_info[0], (VOID *)pRxFceInfo, sizeof(RXFCE_INFO));
  	pRxBlk->pRxFceInfo = (RXFCE_INFO *)&pRxBlk->hw_rx_info[0];

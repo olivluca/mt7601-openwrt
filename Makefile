@@ -32,7 +32,24 @@ define KernelPackage/mt7601
 	TITLE:=Driver for MT7601U wireless adapters
 	FILES:=$(PKG_BUILD_DIR)/os/linux/mt7601Usta.$(LINUX_KMOD_SUFFIX)
 	DEPENDS:=+wireless-tools +hostapd-common-old @USB_SUPPORT
-#	AUTOLOAD:=$(call AutoLoad,50,mt7601Usta)
+	AUTOLOAD:=$(call AutoProbe,mt7601Usta)
+	MENU:=1
+endef
+
+define KernelPackage/mt7601/config
+  if PACKAGE_kmod-mt7601
+  
+	config PACKAGE_MT7601_DEBUG
+		bool "Enable debug messages"
+		default n
+		help
+		  With this option the driver will emit A LOT
+		  of debugging information. 
+		  The driver is quite noisy, so enable it only if
+		  absolutely necessary to debug problems with this
+		  driver.
+		  
+  endif
 endef
 
 define KernelPackage/mt7601/description
@@ -44,15 +61,17 @@ ifneq ($(CONFIG_BIG_ENDIAN),)
 else
   ENDIANOPTS:=
 endif
-    
+
 define Build/Compile
-	$(MAKE) -C $(PKG_BUILD_DIR) LINUX_DIR=$(LINUX_DIR) KERNEL_CROSS=$(KERNEL_CROSS) ARCH=$(LINUX_KARCH) ENDIANOPTS=$(ENDIANOPTS)
+	$(MAKE) -C $(PKG_BUILD_DIR) LINUX_DIR=$(LINUX_DIR) KERNEL_CROSS=$(KERNEL_CROSS) ARCH=$(LINUX_KARCH) ENDIANOPTS=$(ENDIANOPTS) RTDEBUG=$(CONFIG_PACKAGE_MT7601_DEBUG)
 endef
 
 define KernelPackage/mt7601/install
 	$(INSTALL_DIR) $(1)/etc/Wireless/RT2870STA/
 	$(INSTALL_DIR) $(1)/lib/modules/$(LINUX_VERSION)
+	$(INSTALL_DIR) $(1)/lib/wifi
 	$(CP) $(PKG_BUILD_DIR)/RT2870STA.dat $(1)/etc/Wireless/RT2870STA/
+	$(INSTALL_DATA) ./files/lib/wifi/wext.sh $(1)/lib/wifi
 endef
 
 $(eval $(call KernelPackage,mt7601))
