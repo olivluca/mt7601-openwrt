@@ -128,7 +128,7 @@ diff -ur a/os/linux/config.mk b/os/linux/config.mk
  export CFLAGS
  endif
  
-+GCCVERSION = $(shell gcc -dumpversion)
++GCCVERSION = $(shell $(KERNEL_CROSS)gcc -dumpversion)
 +
  ifeq ($(PLATFORM),PC)
      ifneq (,$(findstring 2.4,$(LINUX_SRC)))
