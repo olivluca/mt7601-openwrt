@@ -22,6 +22,7 @@ PKG_BUILD_PARALLEL:=1
 PKG_USE_MIPS16:=0
 
 PKG_MAINTAINER:=Luca Olivetti <luca@ventoso.org>
+PKG_LICENSE:=GPL-2.0+
 
 include $(INCLUDE_DIR)/package.mk
 
