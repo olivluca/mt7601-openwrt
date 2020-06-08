@@ -12,7 +12,7 @@ PKG_NAME:=mt7601
 
 PKG_VERSION:=3.0.0.4_20130913
 PKG_RELEASE:=1
-PKG_SOURCE_URL:=http://www.mediatek.com/AmazonS3/Downloads/linux/
+PKG_SOURCE_URL:=https://d86o2zu8ugzlg.cloudfront.net/mediatek-craft/drivers/
 PKG_MD5SUM:=5f440dccc8bc952745a191994fc34699
 
 PKG_SOURCE:=DPO_MT7601U_LinuxSTA_$(PKG_VERSION).tar.bz2
